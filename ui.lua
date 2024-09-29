@@ -2016,6 +2016,7 @@ local library = {
 
                               function library:loadConfig()
                                  local name = library.flags["config_box"]
+                                 print(name)
                                  if not isfile(name) then
                                     library:Notify("Config file not found!")
                                     return end
