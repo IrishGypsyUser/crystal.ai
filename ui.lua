@@ -1376,16 +1376,13 @@ local library = {
                                     if not table.find(library.options[args.flag].values,value) then value = library.options[args.flag].values[1] end
                                     library.flags[args.flag] = value
                                     for i,v in next, holder:GetChildren() do
-                                        v.ZIndex = ok
-
                                        if v.ClassName ~= "Frame" then continue end
                                        v.ZIndex = ok
                                        v.off.ZIndex = ok
                                        v.off.TextColor3 = Color3.new(0.65,0.65,0.65)
                                        if v.Name == library.flags[args.flag] then
                                           v.off.TextColor3 = library.Colors.libColor
-                                          
-
+        
                                        end
                                     end
                                     frame.Visible = false
