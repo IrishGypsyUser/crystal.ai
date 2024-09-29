@@ -188,10 +188,10 @@ local library = {
    menu.bg.pre.Text = library.Title
    menu.bg.Position = UDim2.new(0.5,-menu.bg.Size.X.Offset/2,0.5,-menu.bg.Size.Y.Offset/2)
    menu.Parent = CloneCore
-   menu.Name = "gamesense"
+   menu.Name = "tweaker.cc"
    CloneScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global
    CloneScreenGui.Parent = CloneCore
-   CloneScreenGui.Name = "gamesense"
+   CloneScreenGui.Name = "tweaker.cc"
 
 
 
