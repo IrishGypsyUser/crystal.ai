@@ -2016,10 +2016,10 @@ local library = {
 
                               function library:loadConfig()
                                  local name = library.flags["config_box"]
-                                 if not isfile(name) then
+                                 if not isfile("tweaker.cc/configs/"..name) then
                                     library:Notify("Config file not found!")
                                     return end
-                                    local config = game:GetService("HttpService"):JSONDecode(readfile(name))
+                                    local config = game:GetService("HttpService"):JSONDecode(readfile("tweaker.cc/configs/"..name))
                                     for i,v in next, library.options do
                                        spawn(function()pcall(function()
                                        if config[i] then
@@ -2044,7 +2044,7 @@ local library = {
                            end
 
                            function library:deleteConfig()
-                                 if isfile(library.flags["config_box"]) then delfile(library.flags["config_box"])
+                                 if isfile("tweaker.cc/configs/"..library.flags["config_box"]) then delfile("tweaker.cc/configs/"..library.flags["config_box"])
                                  library:refreshConfigs()
                               end
                            end
