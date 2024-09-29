@@ -1224,6 +1224,7 @@ local library = {
                               groupbox.Size += UDim2.new(0, 0, 0, 34)
                               library.multiZindex -= 1
                               library.multiZindex+=topStuff
+                              local ok = library.multiZindex-1
                               local list = Instance.new("Frame")
                               local bg = Instance.new("Frame")
                               local main = Instance.new("ScrollingFrame")
@@ -1235,7 +1236,6 @@ local library = {
                               local frame = Instance.new("Frame")
                               local holder = Instance.new("ScrollingFrame")
                               local UIListLayout = Instance.new("UIListLayout")
-                              
 
                               list.Name = "list"
                               list.Parent = grouper
@@ -1261,7 +1261,8 @@ local library = {
                               main.Size = UDim2.new(1, 0, 1, 0)
                               main.CanvasSize = UDim2.new(0, 0, 0, 0)
                               main.ScrollBarThickness = 0
-
+                              main.ZIndex = ok
+                              
                               button.Name = "button"
                               button.Parent = main
                               button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -1289,7 +1290,7 @@ local library = {
                               valuetext.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                               valuetext.BackgroundTransparency = 1.000
                               valuetext.Position = UDim2.new(0.00200000009, 2, 0, 7)
-                              valuetext.ZIndex = 2
+                              valuetext.ZIndex = ok
                               valuetext.Font = Enum.Font.Code
                               valuetext.Text = ""
                               valuetext.TextColor3 = Color3.fromRGB(244, 244, 244)
@@ -1307,7 +1308,7 @@ local library = {
                               text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                               text.BackgroundTransparency = 1.000
                               text.Position = UDim2.new(0.0299999993, -1, 0, 7)
-                              text.ZIndex = 2
+                              text.ZIndex = ok
                               text.Font = Enum.Font.Code
                               text.Text = args.text or args.flag
                               text.TextColor3 = Color3.fromRGB(244, 244, 244)
