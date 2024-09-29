@@ -1235,8 +1235,8 @@ local library = {
                               local frame = Instance.new("Frame")
                               local holder = Instance.new("ScrollingFrame")
                               local UIListLayout = Instance.new("UIListLayout")
-                              holder.ZIndex = 500
-                              main.ZIndex = 501
+                              holder.ZIndex = topStuff+1
+                              main.ZIndex = topStuff+1
 
                               list.Name = "list"
                               list.Parent = grouper
