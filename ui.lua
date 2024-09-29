@@ -1995,7 +1995,7 @@ local library = {
                                  else jig[i] = v
                                  end
                               end
-                              writefile("tweaker.cc/configs/"..name..".cfg",game:GetService("HttpService"):JSONEncode(jig))
+                              writefile("tweaker.cc/configs/"..name,game:GetService("HttpService"):JSONEncode(jig))
                               library:Notify("Succesfully created config "..name..".cfg!", 5)
                               library:refreshConfigs()
                            end
@@ -2009,17 +2009,17 @@ local library = {
                               elseif typeof(v) == "EnumItem" then jig[i] = {string.split(tostring(v),".")[2],string.split(tostring(v),".")[3]}
                               else jig[i] = v
                                  end;end
-                                 writefile("tweaker.cc/configs/"..name..".cfg",game:GetService("HttpService"):JSONEncode(jig))
+                                 writefile("tweaker.cc/configs/"..name,game:GetService("HttpService"):JSONEncode(jig))
                                  library:Notify("Succesfully updated config "..name..".cfg!", 5)
                                  library:refreshConfigs()
                               end
 
                               function library:loadConfig()
                                  local name = library.flags["config_box"]
-                                 if not isfile("tweaker.cc/configs/"..name..".cfg") then
+                                 if not isfile("tweaker.cc/configs/"..name) then
                                     library:Notify("Config file not found!")
                                     return end
-                                    local config = game:GetService("HttpService"):JSONDecode(readfile("tweaker.cc/configs/"..name..".cfg"))
+                                    local config = game:GetService("HttpService"):JSONDecode(readfile("tweaker.cc/configs/"..name))
                                     for i,v in next, library.options do
                                        spawn(function()pcall(function()
                                        if config[i] then
@@ -2040,7 +2040,7 @@ local library = {
                                  end)
                                  end)
                               end
-                              library:Notify("Succesfully loaded config "..name..".cfg!", 5)
+                              library:Notify("Succesfully loaded config "..name.."!", 5)
                            end
 
                            function library:deleteConfig()
