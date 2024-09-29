@@ -1224,7 +1224,7 @@ local library = {
                               groupbox.Size += UDim2.new(0, 0, 0, 34)
                               library.multiZindex -= 1
                               library.multiZindex+=topStuff
-                              local ok = library.multiZindex+1
+                              local ok = library.multiZindex+100
                               local list = Instance.new("Frame")
                               local bg = Instance.new("Frame")
                               local main = Instance.new("ScrollingFrame")
@@ -1243,7 +1243,7 @@ local library = {
                               list.BackgroundTransparency = 1.000
                               list.BorderSizePixel = 0
                               list.Size = UDim2.new(1, 0, 0, 35)
-                              list.ZIndex = library.multiZindex
+                              list.ZIndex = ok
 
                               bg.Name = "bg"
                               bg.Parent = list
@@ -1252,7 +1252,7 @@ local library = {
                               bg.BorderSizePixel = 0
                               bg.Position = UDim2.new(0.02, -1, 0, 16)
                               bg.Size = UDim2.new(0, 205, 0, 15)
-
+                              bg.ZIndex = ok
                               main.Name = "main"
                               main.Parent = bg
                               main.Active = true
@@ -1262,7 +1262,7 @@ local library = {
                               main.CanvasSize = UDim2.new(0, 0, 0, 0)
                               main.ScrollBarThickness = 0
                               main.ZIndex = ok
-                              
+
                               button.Name = "button"
                               button.Parent = main
                               button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -1272,7 +1272,7 @@ local library = {
                               button.Text = ""
                               button.TextColor3 = Color3.fromRGB(0, 0, 0)
                               button.TextSize = 14.000
-
+                              button.ZIndex = ok
                               dumbtriangle.Name = "dumbtriangle"
                               dumbtriangle.Parent = main
                               dumbtriangle.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -1290,7 +1290,7 @@ local library = {
                               valuetext.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                               valuetext.BackgroundTransparency = 1.000
                               valuetext.Position = UDim2.new(0.00200000009, 2, 0, 7)
-                              valuetext.ZIndex = ok
+                              valuetext.ZIndex = library.multiZindex
                               valuetext.Font = Enum.Font.Code
                               valuetext.Text = ""
                               valuetext.TextColor3 = Color3.fromRGB(244, 244, 244)
@@ -1308,7 +1308,7 @@ local library = {
                               text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                               text.BackgroundTransparency = 1.000
                               text.Position = UDim2.new(0.0299999993, -1, 0, 7)
-                              text.ZIndex = ok
+                              text.ZIndex = library.multiZindex
                               text.Font = Enum.Font.Code
                               text.Text = args.text or args.flag
                               text.TextColor3 = Color3.fromRGB(244, 244, 244)
@@ -1376,6 +1376,7 @@ local library = {
                                     library.flags[args.flag] = value
                                     for i,v in next, holder:GetChildren() do
                                        if v.ClassName ~= "Frame" then continue end
+                                       v.ZIndex = ok
                                        v.off.TextColor3 = Color3.new(0.65,0.65,0.65)
                                        if v.Name == library.flags[args.flag] then
                                           v.off.TextColor3 = library.Colors.libColor
@@ -1408,7 +1409,7 @@ local library = {
                                     option.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                                     option.BackgroundTransparency = 1.000
                                     option.Size = UDim2.new(1, 0, 0, 20)
-
+                                    option.ZIndex = ok
                                     button_2.Name = "button"
                                     button_2.Parent = option
                                     button_2.BackgroundColor3 = Color3.fromRGB(10,10,10)
@@ -1420,7 +1421,7 @@ local library = {
                                     button_2.Text = ""
                                     button_2.TextColor3 = Color3.fromRGB(0, 0, 0)
                                     button_2.TextSize = 14.000
-
+                                    button_2.ZIndex = ok
                                     text_2.Name = "off"
                                     text_2.Parent = option
                                     text_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -1433,6 +1434,7 @@ local library = {
                                     text_2.TextSize = 14.000
                                     text_2.TextStrokeTransparency = 0.000
                                     text_2.TextXAlignment = Enum.TextXAlignment.Left
+                                    text_2.ZIndex = ok
 
                                     button_2.MouseButton1Click:Connect(function()
                                     updateValue(v)
