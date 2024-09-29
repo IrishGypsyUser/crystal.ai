@@ -1243,7 +1243,7 @@ local library = {
                               list.BackgroundTransparency = 1.000
                               list.BorderSizePixel = 0
                               list.Size = UDim2.new(1, 0, 0, 35)
-                              list.ZIndex = ok
+                              list.ZIndex = library.multiZindex
 
                               bg.Name = "bg"
                               bg.Parent = list
@@ -1252,7 +1252,7 @@ local library = {
                               bg.BorderSizePixel = 0
                               bg.Position = UDim2.new(0.02, -1, 0, 16)
                               bg.Size = UDim2.new(0, 205, 0, 15)
-                              bg.ZIndex = ok
+                              bg.ZIndex = library.multiZindex
                               main.Name = "main"
                               main.Parent = bg
                               main.Active = true
@@ -1261,7 +1261,7 @@ local library = {
                               main.Size = UDim2.new(1, 0, 1, 0)
                               main.CanvasSize = UDim2.new(0, 0, 0, 0)
                               main.ScrollBarThickness = 0
-                              main.ZIndex = ok
+                              main.ZIndex = library.multiZindex
 
                               button.Name = "button"
                               button.Parent = main
@@ -1272,7 +1272,7 @@ local library = {
                               button.Text = ""
                               button.TextColor3 = Color3.fromRGB(0, 0, 0)
                               button.TextSize = 14.000
-                              button.ZIndex = ok
+                              button.ZIndex = library.multiZindex
                               dumbtriangle.Name = "dumbtriangle"
                               dumbtriangle.Parent = main
                               dumbtriangle.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -1361,6 +1361,7 @@ local library = {
                                     for i,v in next, holder:GetChildren() do
                                        if v.ClassName ~= "Frame" then continue end
                                        v.off.TextColor3 = Color3.fromRGB(155, 155, 155)
+                                       v.ZIndex = ok
                                        for _i,_v in next, library.flags[args.flag] do
                                           if v.Name == _v then
                                              v.off.TextColor3 = Color3.new(1,1,1)
@@ -1375,11 +1376,16 @@ local library = {
                                     if not table.find(library.options[args.flag].values,value) then value = library.options[args.flag].values[1] end
                                     library.flags[args.flag] = value
                                     for i,v in next, holder:GetChildren() do
+                                        v.ZIndex = ok
+
                                        if v.ClassName ~= "Frame" then continue end
                                        v.ZIndex = ok
+                                       v.off.ZIndex = ok
                                        v.off.TextColor3 = Color3.new(0.65,0.65,0.65)
                                        if v.Name == library.flags[args.flag] then
                                           v.off.TextColor3 = library.Colors.libColor
+                                          
+
                                        end
                                     end
                                     frame.Visible = false
