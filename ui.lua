@@ -1996,7 +1996,7 @@ local library = {
                                  end
                               end
                               writefile("tweaker.cc/configs/"..name,game:GetService("HttpService"):JSONEncode(jig))
-                              library:Notify("Succesfully created config "..name..".cfg!", 5)
+                              library:Notify("Succesfully created config "..name.."!", 5)
                               library:refreshConfigs()
                            end
 
@@ -2010,16 +2010,16 @@ local library = {
                               else jig[i] = v
                                  end;end
                                  writefile("tweaker.cc/configs/"..name,game:GetService("HttpService"):JSONEncode(jig))
-                                 library:Notify("Succesfully updated config "..name..".cfg!", 5)
+                                 library:Notify("Succesfully updated config "..name.."!", 5)
                                  library:refreshConfigs()
                               end
 
                               function library:loadConfig()
                                  local name = library.flags["config_box"]
-                                 if not isfile("tweaker.cc/configs/"..name) then
+                                 if not isfile(name) then
                                     library:Notify("Config file not found!")
                                     return end
-                                    local config = game:GetService("HttpService"):JSONDecode(readfile("tweaker.cc/configs/"..name))
+                                    local config = game:GetService("HttpService"):JSONDecode(readfile(name))
                                     for i,v in next, library.options do
                                        spawn(function()pcall(function()
                                        if config[i] then
