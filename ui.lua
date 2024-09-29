@@ -1223,7 +1223,7 @@ local library = {
                               if not args.flag or not args.values then return warn("⚠️ incorrect arguments ⚠️") end
                               groupbox.Size += UDim2.new(0, 0, 0, 34)
                               library.multiZindex -= 1
-
+                              library.multiZindex+=topStuff
                               local list = Instance.new("Frame")
                               local bg = Instance.new("Frame")
                               local main = Instance.new("ScrollingFrame")
@@ -1235,8 +1235,7 @@ local library = {
                               local frame = Instance.new("Frame")
                               local holder = Instance.new("ScrollingFrame")
                               local UIListLayout = Instance.new("UIListLayout")
-                              holder.ZIndex = topStuff+1
-                              main.ZIndex = topStuff+1
+                              
 
                               list.Name = "list"
                               list.Parent = grouper
@@ -2018,7 +2017,6 @@ local library = {
 
                               function library:loadConfig()
                                  local name = library.flags["config_box"]
-                                 print(name)
                                  if not isfile(name) then
                                     library:Notify("Config file not found!")
                                     return end
