@@ -1331,7 +1331,7 @@ local library = {
                               holder.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
                               holder.BorderColor3 = Color3.fromRGB(0, 0, 0)
                               holder.Size = UDim2.new(1, 0, 1, 0)
-
+                              holder.ZIndex = ok
                               UIListLayout.Parent = holder
                               UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 
