@@ -136,7 +136,7 @@ local function createWatermark()
 end
 
 local library = {
-   Title = 'game<font color="rgb(189, 172, 255)">sense</font>',
+   Title = 'tweaker<font color="rgb(189, 172, 255)">.cc</font>',
    keybind = Enum.KeyCode.RightBracket,
    Watermark = createWatermark(),
       Colors = {
