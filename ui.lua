@@ -1445,7 +1445,7 @@ local library = {
                                   end)
                                end
                                library.options[args.flag].values = tbl
-                               updateValue(table.find(library.options[args.flag].values,library.flags[args.flag]) and library.flags[args.flag] or library.options[args.flag].values[1])
+                               updateValue(table.find(library.options[args.flag].values,library.flags[args.flag]))
                             end
 
                             button.MouseButton1Click:Connect(function()
