@@ -1344,7 +1344,7 @@ local library = {
                                            end
                                         end
                                      else
-                                        --table.insert(library.flags[args.flag],value)
+                                        table.insert(library.flags[args.flag],value)
                                      end
                                   else
                                      library.flags[args.flag] = value
