@@ -1205,7 +1205,7 @@ local library = {
                               div.BackgroundTransparency = 1.000
                               div.BorderSizePixel = 0
                               div.Size = UDim2.new(1, 0, 0, 20)
-                              div.ZIndex = topStuff
+                              div.ZIndex = library.multiZindex
 
                               Text.Name = "Text"
                               Text.Parent = div
@@ -1218,6 +1218,7 @@ local library = {
                               Text.TextSize = 13.000
                               Text.TextStrokeTransparency = 0.000
                               Text.TextXAlignment = Enum.TextXAlignment.Left
+                              Text.ZIndex = library.multiZindex
                            end
                            function group:addList(args)
                             if not args.flag or not args.values then return warn("⚠️ incorrect arguments ⚠️") end
