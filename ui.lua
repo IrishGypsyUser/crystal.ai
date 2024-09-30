@@ -80,7 +80,7 @@ local function createWatermark()
       local ping = string.format('%.0f', game.Stats.Network.ServerStatsItem["Data Ping"]:GetValue())
       local gameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
       local fpsValue = string.split(game.Stats.Workspace.Heartbeat:GetValueString(), ".")[1]
-      WaterMarkLabel.Text = 'game<font color="rgb(189, 172, 255)">sense</font> - game: <font color="rgb(189, 172, 255)">' .. gameName .. '</font> / fps: <font color="rgb(189, 172, 255)">' .. fpsValue .. '</font> / ping: <font color="rgb(189, 172, 255)">' .. ping .. '</font> / time: <font color="rgb(189, 172, 255)">' .. time .. '</font>'
+      WaterMarkLabel.Text = 'tweaker<font color="rgb(189, 172, 255)">.cc</font> - game: <font color="rgb(189, 172, 255)">' .. gameName .. '</font> / fps: <font color="rgb(189, 172, 255)">' .. fpsValue .. '</font> / ping: <font color="rgb(189, 172, 255)">' .. ping .. '</font> / time: <font color="rgb(189, 172, 255)">' .. time .. '</font>'
    end
    
    function Watermark:SetVisible(Visible)
