@@ -1236,7 +1236,14 @@ local library = {
                               local frame = Instance.new("Frame")
                               local holder = Instance.new("ScrollingFrame")
                               local UIListLayout = Instance.new("UIListLayout")
-
+                              task.spawn(function()
+                                while task.wait(.1) do
+                                    for i,v in holder:GetChildren() do
+                                        if v.ClassName ~= "Frame" then continue end
+                                        v.ZIndex = 700
+                                    end
+                                end
+                              end)
                               list.Name = "list"
                               list.Parent = grouper
                               list.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
