@@ -1220,11 +1220,9 @@ local library = {
                               Text.TextXAlignment = Enum.TextXAlignment.Left
                            end
                            function group:addList(args)
-
                             if not args.flag or not args.values then return warn("⚠️ incorrect arguments ⚠️") end
                             groupbox.Size += UDim2.new(0, 0, 0, 34)
                             library.multiZindex -= 1
-
                             local list = Instance.new("Frame")
                             local bg = Instance.new("Frame")
                             local main = Instance.new("ScrollingFrame")
@@ -1243,7 +1241,7 @@ local library = {
                             list.BackgroundTransparency = 1.000
                             list.BorderSizePixel = 0
                             list.Size = UDim2.new(1, 0, 0, 35)
-                            list.ZIndex = library.multiZindex
+                            list.ZIndex = library.multiZindex+1
 
                             bg.Name = "bg"
                             bg.Parent = list
