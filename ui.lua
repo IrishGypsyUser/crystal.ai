@@ -1194,7 +1194,7 @@ local library = {
                            end
                            function group:addLabel(args)
                               groupbox.Size += UDim2.new(0, 0, 0, 20)
-                              library.multiZindex -= 1
+                              library.multiZindex -= 2
 
                               local div = Instance.new("Frame")
                               local Text = Instance.new("TextLabel")
