@@ -1220,266 +1220,253 @@ local library = {
                               Text.TextXAlignment = Enum.TextXAlignment.Left
                            end
                            function group:addList(args)
-                              if not args.flag or not args.values then return warn("⚠️ incorrect arguments ⚠️") end
-                              groupbox.Size += UDim2.new(0, 0, 0, 34)
-                              library.multiZindex -= 1
-                              library.multiZindex+=topStuff
-                              local ok = library.multiZindex+100
-                              local list = Instance.new("Frame")
-                              local bg = Instance.new("Frame")
-                              local main = Instance.new("ScrollingFrame")
-                              local button = Instance.new("TextButton")
-                              local dumbtriangle = Instance.new("ImageLabel")
-                              local valuetext = Instance.new("TextLabel")
-                              local gradient = Instance.new("UIGradient")
-                              local text = Instance.new("TextLabel")
-                              local frame = Instance.new("Frame")
-                              local holder = Instance.new("ScrollingFrame")
-                              local UIListLayout = Instance.new("UIListLayout")
-                              task.spawn(function()
-                                while task.wait(.1) do
-                                    for i,v in holder:GetChildren() do
-                                        if v.ClassName ~= "Frame" then continue end
-                                        v.ZIndex = 700
-                                    end
-                                end
-                              end)
-                              list.Name = "list"
-                              list.Parent = grouper
-                              list.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                              list.BackgroundTransparency = 1.000
-                              list.BorderSizePixel = 0
-                              list.Size = UDim2.new(1, 0, 0, 35)
-                              list.ZIndex = library.multiZindex
 
-                              bg.Name = "bg"
-                              bg.Parent = list
-                              bg.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
-                              bg.BorderColor3 = Color3.fromRGB(0, 0, 0)
-                              bg.BorderSizePixel = 0
-                              bg.Position = UDim2.new(0.02, -1, 0, 16)
-                              bg.Size = UDim2.new(0, 205, 0, 15)
-                              bg.ZIndex = library.multiZindex
-                              main.Name = "main"
-                              main.Parent = bg
-                              main.Active = true
-                              main.BackgroundColor3 = Color3.fromRGB(11, 11, 11)
-                              main.BorderColor3 = Color3.fromRGB(1, 1, 1)
-                              main.Size = UDim2.new(1, 0, 1, 0)
-                              main.CanvasSize = UDim2.new(0, 0, 0, 0)
-                              main.ScrollBarThickness = 0
-                              main.ZIndex = library.multiZindex
+                            if not args.flag or not args.values then return warn("⚠️ incorrect arguments ⚠️") end
+                            groupbox.Size += UDim2.new(0, 0, 0, 34)
+                            library.multiZindex -= 1
 
-                              button.Name = "button"
-                              button.Parent = main
-                              button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                              button.BackgroundTransparency = 1.000
-                              button.Size = UDim2.new(0, 191, 1, 0)
-                              button.Font = Enum.Font.Code
-                              button.Text = ""
-                              button.TextColor3 = Color3.fromRGB(0, 0, 0)
-                              button.TextSize = 14.000
-                              button.ZIndex = library.multiZindex
-                              dumbtriangle.Name = "dumbtriangle"
-                              dumbtriangle.Parent = main
-                              dumbtriangle.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-                              dumbtriangle.BackgroundTransparency = 1.000
-                              dumbtriangle.BorderColor3 = Color3.fromRGB(0, 0, 0)
-                              dumbtriangle.BorderSizePixel = 0
-                              dumbtriangle.Position = UDim2.new(1, -11, 0.5, -3)
-                              dumbtriangle.Size = UDim2.new(0, 7, 0, 6)
-                              dumbtriangle.ZIndex = 3
-                              dumbtriangle.Image = "rbxassetid://8532000591"
-                              dumbtriangle.ImageColor3 = Color3.fromRGB(255, 255, 255)
+                            local list = Instance.new("Frame")
+                            local bg = Instance.new("Frame")
+                            local main = Instance.new("ScrollingFrame")
+                            local button = Instance.new("TextButton")
+                            local dumbtriangle = Instance.new("ImageLabel")
+                            local valuetext = Instance.new("TextLabel")
+                            local gradient = Instance.new("UIGradient")
+                            local text = Instance.new("TextLabel")
+                            local frame = Instance.new("Frame")
+                            local holder = Instance.new("ScrollingFrame")
+                            local UIListLayout = Instance.new("UIListLayout")
 
-                              valuetext.Name = "valuetext"
-                              valuetext.Parent = main
-                              valuetext.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                              valuetext.BackgroundTransparency = 1.000
-                              valuetext.Position = UDim2.new(0.00200000009, 2, 0, 7)
-                              valuetext.ZIndex = library.multiZindex
-                              valuetext.Font = Enum.Font.Code
-                              valuetext.Text = ""
-                              valuetext.TextColor3 = Color3.fromRGB(244, 244, 244)
-                              valuetext.TextSize = 13.000
-                              valuetext.TextStrokeTransparency = 0.000
-                              valuetext.TextXAlignment = Enum.TextXAlignment.Left
+                            list.Name = "list"
+                            list.Parent = grouper
+                            list.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                            list.BackgroundTransparency = 1.000
+                            list.BorderSizePixel = 0
+                            list.Size = UDim2.new(1, 0, 0, 35)
+                            list.ZIndex = library.multiZindex
 
-                              gradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(105, 105, 105)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(121, 121, 121))}
-                              gradient.Rotation = 90
-                              gradient.Name = "gradient"
-                              gradient.Parent = main
+                            bg.Name = "bg"
+                            bg.Parent = list
+                            bg.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+                            bg.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                            bg.BorderSizePixel = 0
+                            bg.Position = UDim2.new(0.02, -1, 0, 16)
+                            bg.Size = UDim2.new(0, 205, 0, 15)
 
-                              text.Name = "text"
-                              text.Parent = list
-                              text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                              text.BackgroundTransparency = 1.000
-                              text.Position = UDim2.new(0.0299999993, -1, 0, 7)
-                              text.ZIndex = library.multiZindex
-                              text.Font = Enum.Font.Code
-                              text.Text = args.text or args.flag
-                              text.TextColor3 = Color3.fromRGB(244, 244, 244)
-                              text.TextSize = 13.000
-                              text.TextStrokeTransparency = 0.000
-                              text.TextXAlignment = Enum.TextXAlignment.Left
+                            main.Name = "main"
+                            main.Parent = bg
+                            main.Active = true
+                            main.BackgroundColor3 = Color3.fromRGB(11, 11, 11)
+                            main.BorderColor3 = Color3.fromRGB(1, 1, 1)
+                            main.Size = UDim2.new(1, 0, 1, 0)
+                            main.CanvasSize = UDim2.new(0, 0, 0, 0)
+                            main.ScrollBarThickness = 0
 
-                              frame.Name = "frame"
-                              frame.Parent = list
-                              frame.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
-                              frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-                              frame.BorderSizePixel = 0
-                              frame.Position = UDim2.new(0.0299999993, -1, 0.605000019, 15)
-                              frame.Size = UDim2.new(0, 203, 0, 0)
-                              frame.Visible = false
-                              frame.ZIndex = library.multiZindex
+                            button.Name = "button"
+                            button.Parent = main
+                            button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                            button.BackgroundTransparency = 1.000
+                            button.Size = UDim2.new(0, 191, 1, 0)
+                            button.Font = Enum.Font.Code
+                            button.Text = ""
+                            button.TextColor3 = Color3.fromRGB(0, 0, 0)
+                            button.TextSize = 14.000
 
-                              holder.Name = "holder"
-                              holder.Parent = frame
-                              holder.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
-                              holder.BorderColor3 = Color3.fromRGB(0, 0, 0)
-                              holder.Size = UDim2.new(1, 0, 1, 0)
-                              holder.ZIndex = ok
-                              UIListLayout.Parent = holder
-                              UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+                            dumbtriangle.Name = "dumbtriangle"
+                            dumbtriangle.Parent = main
+                            dumbtriangle.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+                            dumbtriangle.BackgroundTransparency = 1.000
+                            dumbtriangle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                            dumbtriangle.BorderSizePixel = 0
+                            dumbtriangle.Position = UDim2.new(1, -11, 0.5, -3)
+                            dumbtriangle.Size = UDim2.new(0, 7, 0, 6)
+                            dumbtriangle.ZIndex = 3
+                            dumbtriangle.Image = "rbxassetid://8532000591"
+                            dumbtriangle.ImageColor3 = Color3.fromRGB(255, 255, 255)
 
-                              local function updateValue(value)
-                                 if value == nil then valuetext.Text = "nil" return end
-                                 if args.multiselect then
-                                    if type(value) == "string" then
-                                       if not table.find(library.options[args.flag].values,value) then return end
-                                       if table.find(library.flags[args.flag],value) then
-                                          for i,v in pairs(library.flags[args.flag]) do
-                                             if v == value then
-                                                table.remove(library.flags[args.flag],i)
-                                             end
-                                          end
-                                       else
-                                          table.insert(library.flags[args.flag],value)
-                                       end
-                                    else
-                                       library.flags[args.flag] = value
-                                    end
-                                    local buttonText = ""
-                                    for i,v in pairs(library.flags[args.flag]) do
-                                       local jig = i ~= #library.flags[args.flag] and "," or ""
-                                       buttonText = buttonText..v..jig
-                                    end
-                                    if buttonText == "" then buttonText = "..." end
-                                    for i,v in next, holder:GetChildren() do
-                                       if v.ClassName ~= "Frame" then continue end
-                                       v.off.TextColor3 = Color3.fromRGB(155, 155, 155)
-                                       v.ZIndex = ok
-                                       for _i,_v in next, library.flags[args.flag] do
-                                          if v.Name == _v then
-                                             v.off.TextColor3 = Color3.new(1,1,1)
-                                          end
-                                       end
-                                    end
-                                    valuetext.Text = buttonText
-                                    if args.callback then
-                                       args.callback(library.flags[args.flag])
-                                    end
-                                 else
-                                    if not table.find(library.options[args.flag].values,value) then value = library.options[args.flag].values[1] end
-                                    library.flags[args.flag] = value
-                                    for i,v in next, holder:GetChildren() do
-                                       if v.ClassName ~= "Frame" then continue end
-                                       v.ZIndex = ok
-                                       v.off.ZIndex = ok
-                                       v.off.TextColor3 = Color3.new(0.65,0.65,0.65)
-                                       if v.Name == library.flags[args.flag] then
-                                          v.off.TextColor3 = library.Colors.libColor
-        
-                                       end
-                                    end
-                                    frame.Visible = false
-                                    if library.flags[args.flag] then
-                                       valuetext.Text = library.flags[args.flag]
-                                       if args.callback then
-                                          args.callback(library.flags[args.flag])
-                                       end
-                                    end
-                                 end
-                              end
-                              function refresh(tbl)
-                                 for i,v in next, holder:GetChildren() do
-                                    if v.ClassName == "Frame" then
-                                       v:Destroy()
-                                    end
-                                    frame.Size = UDim2.new(0, 203, 0, 0)
-                                 end
-                                 for i,v in pairs(tbl) do
-                                    frame.Size += UDim2.new(0, 0, 0, 20)
-                                    local option = Instance.new("Frame")
-                                    local button_2 = Instance.new("TextButton")
-                                    local text_2 = Instance.new("TextLabel")
+                            valuetext.Name = "valuetext"
+                            valuetext.Parent = main
+                            valuetext.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                            valuetext.BackgroundTransparency = 1.000
+                            valuetext.Position = UDim2.new(0.00200000009, 2, 0, 7)
+                            valuetext.ZIndex = 2
+                            valuetext.Font = Enum.Font.Code
+                            valuetext.Text = ""
+                            valuetext.TextColor3 = Color3.fromRGB(244, 244, 244)
+                            valuetext.TextSize = 13.000
+                            valuetext.TextStrokeTransparency = 0.000
+                            valuetext.TextXAlignment = Enum.TextXAlignment.Left
 
-                                    option.Name = v
-                                    option.Parent = holder
-                                    option.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                                    option.BackgroundTransparency = 1.000
-                                    option.Size = UDim2.new(1, 0, 0, 20)
-                                    option.ZIndex = ok
-                                    button_2.Name = "button"
-                                    button_2.Parent = option
-                                    button_2.BackgroundColor3 = Color3.fromRGB(10,10,10)
-                                    button_2.BackgroundTransparency = 0.850
-                                    button_2.BorderSizePixel = 0
-                                    button_2.Size = UDim2.new(1, 0, 1, 0)
-                                    button_2.Font = Enum.Font.SourceSans
-                                    button_2.BorderColor3 = Color3.fromRGB(10,10,10)
-                                    button_2.Text = ""
-                                    button_2.TextColor3 = Color3.fromRGB(0, 0, 0)
-                                    button_2.TextSize = 14.000
-                                    button_2.ZIndex = ok
-                                    text_2.Name = "off"
-                                    text_2.Parent = option
-                                    text_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                                    text_2.BackgroundTransparency = 1.000
-                                    text_2.Position = UDim2.new(0, 4, 0, 0)
-                                    text_2.Size = UDim2.new(0, 0, 1, 0)
-                                    text_2.Font = Enum.Font.Code
-                                    text_2.Text = v
-                                    text_2.TextColor3 = args.multiselect and Color3.fromRGB(155, 155, 155) or library.Colors.libColor
-                                    text_2.TextSize = 14.000
-                                    text_2.TextStrokeTransparency = 0.000
-                                    text_2.TextXAlignment = Enum.TextXAlignment.Left
-                                    text_2.ZIndex = ok
+                            gradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(105, 105, 105)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(121, 121, 121))}
+                            gradient.Rotation = 90
+                            gradient.Name = "gradient"
+                            gradient.Parent = main
 
-                                    button_2.MouseButton1Click:Connect(function()
-                                    updateValue(v)
-                                    end)
-                                    button_2.MouseEnter:connect(function()
-                                    button_2.BorderColor3 = library.Colors.libColor
-                                    button_2.BorderSizePixel = 2
+                            text.Name = "text"
+                            text.Parent = list
+                            text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                            text.BackgroundTransparency = 1.000
+                            text.Position = UDim2.new(0.0299999993, -1, 0, 7)
+                            text.ZIndex = 2
+                            text.Font = Enum.Font.Code
+                            text.Text = args.text or args.flag
+                            text.TextColor3 = Color3.fromRGB(244, 244, 244)
+                            text.TextSize = 13.000
+                            text.TextStrokeTransparency = 0.000
+                            text.TextXAlignment = Enum.TextXAlignment.Left
 
-                                    button_2.MouseLeave:connect(function()
-                                    button_2.BorderColor3 = Color3.fromRGB(1,1,1)
-                                    button_2.BorderSizePixel = 0
-                                    end)
-                                    end)
-                                 end
-                                 library.options[args.flag].values = tbl
-                                 updateValue(table.find(library.options[args.flag].values,library.flags[args.flag]) and library.flags[args.flag] or library.options[args.flag].values[1])
-                              end
+                            frame.Name = "frame"
+                            frame.Parent = list
+                            frame.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+                            frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                            frame.BorderSizePixel = 0
+                            frame.Position = UDim2.new(0.0299999993, -1, 0.605000019, 15)
+                            frame.Size = UDim2.new(0, 203, 0, 0)
+                            frame.Visible = false
+                            frame.ZIndex = library.multiZindex
 
-                              button.MouseButton1Click:Connect(function()
-                              if not library.colorpicking then
-                                 frame.Visible = not frame.Visible
-                              end
-                              end)
-                              button.MouseEnter:connect(function()
-                              main.BorderColor3 = library.Colors.libColor
-                              end)
-                              button.MouseLeave:connect(function()
-                              main.BorderColor3 = Color3.fromRGB(1,1,1)
-                              end)
+                            holder.Name = "holder"
+                            holder.Parent = frame
+                            holder.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+                            holder.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                            holder.Size = UDim2.new(1, 0, 1, 0)
 
-                              table.insert(library.toInvis,frame)
-                              library.flags[args.flag] = args.multiselect and {} or ""
-                              library.options[args.flag] = {type = "list",changeState = updateValue,values = args.values,refresh = refresh,skipflag = args.skipflag,oldargs = args}
-                              refresh(args.values)
-                              updateValue(args.value or not args.multiselect and args.values[1] or "abcdefghijklmnopqrstuwvxyz")
+                            UIListLayout.Parent = holder
+                            UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+                            local function updateValue(value)
+                               if value == nil then valuetext.Text = "nil" return end
+                               if args.multiselect then
+                                  if type(value) == "string" then
+                                     if not table.find(library.options[args.flag].values,value) then return end
+                                     if table.find(library.flags[args.flag],value) then
+                                        for i,v in pairs(library.flags[args.flag]) do
+                                           if v == value then
+                                              table.remove(library.flags[args.flag],i)
+                                           end
+                                        end
+                                     else
+                                        table.insert(library.flags[args.flag],value)
+                                     end
+                                  else
+                                     library.flags[args.flag] = value
+                                  end
+                                  local buttonText = ""
+                                  for i,v in pairs(library.flags[args.flag]) do
+                                     local jig = i ~= #library.flags[args.flag] and "," or ""
+                                     buttonText = buttonText..v..jig
+                                  end
+                                  if buttonText == "" then buttonText = "..." end
+                                  for i,v in next, holder:GetChildren() do
+                                     if v.ClassName ~= "Frame" then continue end
+                                     v.off.TextColor3 = Color3.fromRGB(155, 155, 155)
+                                     for _i,_v in next, library.flags[args.flag] do
+                                        if v.Name == _v then
+                                           v.off.TextColor3 = Color3.new(1,1,1)
+                                        end
+                                     end
+                                  end
+                                  valuetext.Text = buttonText
+                                  if args.callback then
+                                     args.callback(library.flags[args.flag])
+                                  end
+                               else
+                                  if not table.find(library.options[args.flag].values,value) then value = library.options[args.flag].values[1] end
+                                  library.flags[args.flag] = value
+                                  for i,v in next, holder:GetChildren() do
+                                     if v.ClassName ~= "Frame" then continue end
+                                     v.off.TextColor3 = Color3.new(0.65,0.65,0.65)
+                                     if v.Name == library.flags[args.flag] then
+                                        v.off.TextColor3 = library.Colors.libColor
+                                     end
+                                  end
+                                  frame.Visible = false
+                                  if library.flags[args.flag] then
+                                     valuetext.Text = library.flags[args.flag]
+                                     if args.callback then
+                                        args.callback(library.flags[args.flag])
+                                     end
+                                  end
+                               end
+                            end
+                            function refresh(tbl)
+                               for i,v in next, holder:GetChildren() do
+                                  if v.ClassName == "Frame" then
+                                     v:Destroy()
+                                  end
+                                  frame.Size = UDim2.new(0, 203, 0, 0)
+                               end
+                               for i,v in pairs(tbl) do
+                                  frame.Size += UDim2.new(0, 0, 0, 20)
+                                  local option = Instance.new("Frame")
+                                  local button_2 = Instance.new("TextButton")
+                                  local text_2 = Instance.new("TextLabel")
+
+                                  option.Name = v
+                                  option.Parent = holder
+                                  option.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                                  option.BackgroundTransparency = 1.000
+                                  option.Size = UDim2.new(1, 0, 0, 20)
+
+                                  button_2.Name = "button"
+                                  button_2.Parent = option
+                                  button_2.BackgroundColor3 = Color3.fromRGB(10,10,10)
+                                  button_2.BackgroundTransparency = 0.850
+                                  button_2.BorderSizePixel = 0
+                                  button_2.Size = UDim2.new(1, 0, 1, 0)
+                                  button_2.Font = Enum.Font.SourceSans
+                                  button_2.BorderColor3 = Color3.fromRGB(10,10,10)
+                                  button_2.Text = ""
+                                  button_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+                                  button_2.TextSize = 14.000
+
+                                  text_2.Name = "off"
+                                  text_2.Parent = option
+                                  text_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                                  text_2.BackgroundTransparency = 1.000
+                                  text_2.Position = UDim2.new(0, 4, 0, 0)
+                                  text_2.Size = UDim2.new(0, 0, 1, 0)
+                                  text_2.Font = Enum.Font.Code
+                                  text_2.Text = v
+                                  text_2.TextColor3 = args.multiselect and Color3.fromRGB(155, 155, 155) or library.Colors.libColor
+                                  text_2.TextSize = 14.000
+                                  text_2.TextStrokeTransparency = 0.000
+                                  text_2.TextXAlignment = Enum.TextXAlignment.Left
+
+                                  button_2.MouseButton1Click:Connect(function()
+                                  updateValue(v)
+                                  end)
+                                  button_2.MouseEnter:connect(function()
+                                  button_2.BorderColor3 = library.Colors.libColor
+                                  button_2.BorderSizePixel = 2
+
+                                  button_2.MouseLeave:connect(function()
+                                  button_2.BorderColor3 = Color3.fromRGB(1,1,1)
+                                  button_2.BorderSizePixel = 0
+                                  end)
+                                  end)
+                               end
+                               library.options[args.flag].values = tbl
+                               updateValue(table.find(library.options[args.flag].values,library.flags[args.flag]) and library.flags[args.flag] or library.options[args.flag].values[1])
+                            end
+
+                            button.MouseButton1Click:Connect(function()
+                            if not library.colorpicking then
+                               frame.Visible = not frame.Visible
+                            end
+                            end)
+                            button.MouseEnter:connect(function()
+                            main.BorderColor3 = library.Colors.libColor
+                            end)
+                            button.MouseLeave:connect(function()
+                            main.BorderColor3 = Color3.fromRGB(1,1,1)
+                            end)
+
+                            table.insert(library.toInvis,frame)
+                            library.flags[args.flag] = args.multiselect and {} or ""
+                            library.options[args.flag] = {type = "list",changeState = updateValue,values = args.values,refresh = refresh,skipflag = args.skipflag,oldargs = args}
+                            refresh(args.values)
+                            updateValue(args.value or not args.multiselect and args.values[1] or "abcdefghijklmnopqrstuwvxyz")
                            end
                            function group:addConfigbox(args)
                               if not args.flag or not args.values then return warn("⚠️ incorrect arguments ⚠️") end
