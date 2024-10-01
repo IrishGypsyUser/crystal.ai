@@ -1467,6 +1467,161 @@ local library = {
                             refresh(args.values)
                             updateValue(args.value or not args.multiselect and args.values[1] or "abcdefghijklmnopqrstuwvxyz")
                            end
+                           function group:addmultilist(args)
+                              if not args.flag or not args.values then return warn("⚠️ incorrect arguments ⚠️") end
+                              groupbox.Size += UDim2.new(0, 0, 0, 138)
+                              library.multiZindex -= 1
+
+                              local list2 = Instance.new("Frame")
+                              local frame = Instance.new("Frame")
+                              local main = Instance.new("Frame")
+                              local holder = Instance.new("ScrollingFrame")
+                              local UIListLayout = Instance.new("UIListLayout")
+                              local dwn = Instance.new("ImageLabel")
+                              local up = Instance.new("ImageLabel")
+
+                              list2.Name = "list2"
+                              list2.Parent = grouper
+                              list2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                              list2.BackgroundTransparency = 1.000
+                              list2.BorderSizePixel = 0
+                              list2.Position = UDim2.new(0, 0, 0.108108111, 0)
+                              list2.Size = UDim2.new(1, 0, 0, 138)
+
+                              frame.Name = "frame"
+                              frame.Parent = list2
+                              frame.BackgroundColor3 = Color3.fromRGB(11, 11, 11)
+                              frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                              frame.BorderSizePixel = 2
+                              frame.Position = UDim2.new(0.02, -1, 0.0439999998, 0)
+                              frame.Size = UDim2.new(0, 205, 0, 128)
+
+                              main.Name = "main"
+                              main.Parent = frame
+                              main.BackgroundColor3 = Color3.fromRGB(11, 11, 11)
+                              main.BorderColor3 = Color3.fromRGB(14, 14, 14)
+                              main.Size = UDim2.new(1, 0, 1, 0)
+
+                              holder.Name = "holder"
+                              holder.Parent = main
+                              holder.Active = true
+                              holder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                              holder.BackgroundTransparency = 1.000
+                              holder.BorderSizePixel = 0
+                              holder.Position = UDim2.new(0, 0, 0.00571428565, 0)
+                              holder.Size = UDim2.new(1, 0, 1, 0)
+                              holder.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+                              holder.CanvasSize = UDim2.new(0, 0, 0, 0)
+                              holder.ScrollBarThickness = 0
+                              holder.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+                              holder.AutomaticCanvasSize = Enum.AutomaticSize.Y
+                              holder.ScrollingEnabled = true
+                              holder.ScrollBarImageTransparency = 0
+
+                              UIListLayout.Parent = holder
+
+                              dwn.Name = "dwn"
+                              dwn.Parent = frame
+                              dwn.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+                              dwn.BackgroundTransparency = 1.000
+                              dwn.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                              dwn.BorderSizePixel = 0
+                              dwn.Position = UDim2.new(0.930000007, 4, 1, -9)
+                              dwn.Size = UDim2.new(0, 7, 0, 6)
+                              dwn.ZIndex = 3
+                              dwn.Image = "rbxassetid://8548723563"
+                              dwn.Visible = false
+
+                              up.Name = "up"
+                              up.Parent = frame
+                              up.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+                              up.BackgroundTransparency = 1.000
+                              up.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                              up.BorderSizePixel = 0
+                              up.Position = UDim2.new(0, 3, 0, 3)
+                              up.Size = UDim2.new(0, 7, 0, 6)
+                              up.ZIndex = 3
+                              up.Image = "rbxassetid://8548757311"
+                              up.Visible = false
+
+                              local function updateValue(value)
+                                 if value == nil then return end
+                                 if not table.find(library.options[args.flag].values,value) then value = library.options[args.flag].values[1] end
+                                 library.flags[args.flag] = value
+                                 for i,v in next, holder:GetChildren() do
+                                    if v.ClassName ~= "Frame" then continue end
+                                    if v.text.Text == library.flags[args.flag] then
+                                       v.text.TextColor3 = library.Colors.libColor
+                                    else
+                                       v.text.TextColor3 = Color3.fromRGB(255,255,255)
+                                    end
+                                 end
+                                 if library.flags[args.flag] then
+                                    if args.callback then
+                                       args.callback(library.flags[args.flag])
+                                    end
+                                 end
+                                 holder.Visible = true
+                              end
+                              holder:GetPropertyChangedSignal("CanvasPosition"):Connect(function()
+                              up.Visible = (holder.CanvasPosition.Y > 1)
+                              dwn.Visible = (holder.CanvasPosition.Y + 1 < (holder.AbsoluteCanvasSize.Y - holder.AbsoluteSize.Y))
+                              end)
+                              function refresh(tbl)
+                                 for i,v in next, holder:GetChildren() do
+                                    if v.ClassName == "Frame" then
+                                       v:Destroy()
+                                    end
+                                 end
+                                 for i,v in pairs(tbl) do
+                                    local item = Instance.new("Frame")
+                                    local button = Instance.new("TextButton")
+                                    local text = Instance.new("TextLabel")
+
+                                    item.Name = v
+                                    item.Parent = holder
+                                    item.Active = true
+                                    item.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+                                    item.BackgroundTransparency = 1.000
+                                    item.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                                    item.BorderSizePixel = 0
+                                    item.Size = UDim2.new(1, 0, 0, 18)
+
+                                    button.Parent = item
+                                    button.BackgroundColor3 = Color3.fromRGB(11, 11, 11)
+                                    button.BackgroundTransparency = 1
+                                    button.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                                    button.BorderSizePixel = 0
+                                    button.Size = UDim2.new(1, 0, 1, 0)
+                                    button.Text = ""
+                                    button.TextTransparency = 1.000
+
+                                    text.Name = 'text'
+                                    text.Parent = item
+                                    text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                                    text.BackgroundTransparency = 1.000
+                                    text.Size = UDim2.new(1, 0, 0, 18)
+                                    text.Font = Enum.Font.Code
+                                    text.Text = v
+                                    text.TextColor3 = Color3.fromRGB(255, 255, 255)
+                                    text.TextSize = 14.000
+                                    text.TextStrokeTransparency = 0.000
+
+                                    button.MouseButton1Click:Connect(function()
+                                    updateValue(v)
+                                    end)
+                                 end
+
+                                 holder.Visible = true
+                                 library.options[args.flag].values = tbl
+                                 updateValue(table.find(library.options[args.flag].values,library.flags[args.flag]) and library.flags[args.flag] or library.options[args.flag].values[1])
+                              end
+
+                              library.flags[args.flag] = ""
+                              library.options[args.flag] = {type = "openlist",changeState = updateValue,values = args.values,refresh = refresh,skipflag = args.skipflag,oldargs = args}
+                              refresh(args.values)
+                              updateValue(args.value or not args.multiselect and args.values[1] or "abcdefghijklmnopqrstuwvxyz")
+                           end
                            function group:addConfigbox(args)
                               if not args.flag or not args.values then return warn("⚠️ incorrect arguments ⚠️") end
                               groupbox.Size += UDim2.new(0, 0, 0, 138)
