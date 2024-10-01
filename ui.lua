@@ -1614,7 +1614,7 @@ local library = {
 
                                  holder.Visible = true
                                  library.options[args.flag].values = tbl
-                                 updateValue(table.find(library.options[args.flag].values,library.flags[args.flag]) and library.flags[args.flag] or library.options[args.flag].values[1])
+                                 updateValue(table.find(library.options[args.flag].values,library.flags[args.flag]) and library.flags[args.flag] or nil)
                               end
 
                               library.flags[args.flag] = ""
