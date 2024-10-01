@@ -1620,7 +1620,7 @@ local library = {
                               library.flags[args.flag] = ""
                               library.options[args.flag] = {type = "openlist",changeState = updateValue,values = args.values,refresh = refresh,skipflag = args.skipflag,oldargs = args}
                               refresh(args.values)
-                              updateValue(args.value or not args.multiselect and args.values[1] or "abcdefghijklmnopqrstuwvxyz")
+                              updateValue(args.value or not args.multiselect and nil or "abcdefghijklmnopqrstuwvxyz")
                            end
                            function group:addConfigbox(args)
                               if not args.flag or not args.values then return warn("⚠️ incorrect arguments ⚠️") end
