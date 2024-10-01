@@ -304,7 +304,11 @@ local library = {
                      menu.Enabled = not menu.Enabled;library.scrolling = false;
                      library.colorpicking = false;
                      Cursor.Visible = not Cursor.Visible;
-                     InputService.MouseIconEnabled = not InputService.MouseIconEnabled;
+                     if menu.Enabled then
+                        InputService.MouseIconEnabled = true
+                     else
+                        InputService.MouseIconEnabled = false
+                     end
                      CursorOutline.Visible = not CursorOutline.Visible; 
                      for i,v in next, 
                         library.toInvis 
