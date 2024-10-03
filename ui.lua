@@ -304,8 +304,12 @@ local library = {
                      menu.Enabled = not menu.Enabled;library.scrolling = false;
                      library.colorpicking = false;
                      Cursor.Visible = not Cursor.Visible;
-                     if menu.Enabled then
-                        InputService.MouseIconEnabled = false
+                     if string.match(identifyexecutor(),"Wave") or string.match(identifyexecutor(),"Synapse") then
+                        if menu.Enabled then
+                           InputService.MouseIconEnabled = false
+                        else
+                           InputService.MouseIconEnabled = true
+                        end
                      else
                         InputService.MouseIconEnabled = true
                      end
