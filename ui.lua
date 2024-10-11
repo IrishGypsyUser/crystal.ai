@@ -80,7 +80,7 @@ local function createWatermark()
       local ping = string.format('%.0f', game.Stats.Network.ServerStatsItem["Data Ping"]:GetValue())
       local gameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
       local fpsValue = string.split(game.Stats.Workspace.Heartbeat:GetValueString(), ".")[1]
-      WaterMarkLabel.Text = 'tweaker<font color="rgb(189, 172, 255)">.cc</font> - game: <font color="rgb(189, 172, 255)">' .. gameName .. '</font> / fps: <font color="rgb(189, 172, 255)">' .. fpsValue .. '</font> / ping: <font color="rgb(189, 172, 255)">' .. ping .. '</font> / time: <font color="rgb(189, 172, 255)">' .. time .. '</font>'
+      WaterMarkLabel.Text = 'crystal<font color="rgb(189, 172, 255)">.ai</font> - game: <font color="rgb(189, 172, 255)">' .. gameName .. '</font> / fps: <font color="rgb(189, 172, 255)">' .. fpsValue .. '</font> / ping: <font color="rgb(189, 172, 255)">' .. ping .. '</font> / time: <font color="rgb(189, 172, 255)">' .. time .. '</font>'
    end
    
    function Watermark:SetVisible(Visible)
@@ -136,7 +136,7 @@ local function createWatermark()
 end
 
 local library = {
-   Title = 'tweaker<font color="rgb(189, 172, 255)">.cc</font>',
+   Title = 'crystal<font color="rgb(189, 172, 255)">.ai</font>',
    keybind = Enum.KeyCode.RightBracket,
    Watermark = createWatermark(),
       Colors = {
@@ -181,17 +181,16 @@ local library = {
       [Enum.KeyCode.Slash] = '/',
       [Enum.KeyCode.BackSlash] = '\\',
       [Enum.KeyCode.Question] = '?',
-      [Enum.UserInputType.MouseButton1] = '[MB1]',
       [Enum.UserInputType.MouseButton2] = '[MB2]',
       [Enum.UserInputType.MouseButton3] = '[MB3]'
    }
    menu.bg.pre.Text = library.Title
    menu.bg.Position = UDim2.new(0.5,-menu.bg.Size.X.Offset/2,0.5,-menu.bg.Size.Y.Offset/2)
    menu.Parent = CloneCore
-   menu.Name = "tweaker.cc"
+   menu.Name = "crystal.ai"
    CloneScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global
    CloneScreenGui.Parent = CloneCore
-   CloneScreenGui.Name = "tweaker.cc"
+   CloneScreenGui.Name = "crystal.ai"
 
 
 
@@ -2153,7 +2152,7 @@ local library = {
                                  else jig[i] = v
                                  end
                               end
-                              writefile("tweaker.cc/configs/"..name,game:GetService("HttpService"):JSONEncode(jig))
+                              writefile("crystal.ai/configs/"..name,game:GetService("HttpService"):JSONEncode(jig))
                               library:Notify("Succesfully created config "..name.."!", 5)
                               library:refreshConfigs()
                            end
@@ -2167,7 +2166,7 @@ local library = {
                               elseif typeof(v) == "EnumItem" then jig[i] = {string.split(tostring(v),".")[2],string.split(tostring(v),".")[3]}
                               else jig[i] = v
                                  end;end
-                                 writefile("tweaker.cc/configs/"..name,game:GetService("HttpService"):JSONEncode(jig))
+                                 writefile("crystal.ai/configs/"..name,game:GetService("HttpService"):JSONEncode(jig))
                                  library:Notify("Succesfully updated config "..name.."!", 5)
                                  library:refreshConfigs()
                               end
@@ -2209,7 +2208,7 @@ local library = {
 
                            function library:refreshConfigs()
                               local tbl = {}
-                              for i,v in next, listfiles("tweaker.cc/configs") do table.insert(tbl,v) end
+                              for i,v in next, listfiles("crystal.ai/configs") do table.insert(tbl,v) end
                               library.options["config_box"].refresh(tbl)
                            end
                         return library
