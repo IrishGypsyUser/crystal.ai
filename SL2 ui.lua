@@ -137,7 +137,7 @@ end
 
 local library = {
    Title = 'crystal<font color="rgb(189, 172, 255)">.ai</font>',
-   keybind = Enum.KeyCode.RightBracket,
+   keybind = Enum.KeyCode.Insert,
    Watermark = createWatermark(),
       Colors = {
          libColor = Color3.fromRGB(189, 172, 255),
